@@ -103,5 +103,5 @@ select {
 }
 
 .movie-item-star-icon-button {
-  @apply transition-all duration-150 hover:scale-110 focus:outline-none focus:ring-2 focus: rounded-sm;
+  @apply transition-all duration-150 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-sm;
 }

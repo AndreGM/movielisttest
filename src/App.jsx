@@ -7,24 +7,11 @@ import { ALL_MOVIES } from "./data/movies";
 import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function App() {
-  const movies = ALL_MOVIES.items; 
-  
- const movielist = movies.map( (movie) => {
-  function showRating(rating) {
-    rating = Math.round(rating);
-    let stars = [];
-    for (let i = 0; i < rating; i++) {
-      stars.push(<StarIcon className="h-6 w-6 text-yellow-400" />);
-    }
-    if (rating < 5) {
-      for (let i = rating; i < 5; i++) {
-        stars.push(<StarIcon className="h-6 w-6 text-gray-300" />);
-      }
-    }
-    return stars;
-  }
+  const movies = ALL_MOVIES.items;
 
-    
+   
+  
+const movielist = movies.map( (movie) => {
     return (<div className="movie-item" key={movie.id}>
           <div className="movie-item-image-wrapper">
             <img src={movie.image} />
@@ -54,9 +41,13 @@ export default function App() {
                   Rating: {movie.rating}/5
                 </div>
                 <div className="movie-item-star-icon-wrapper">
-                  
-                    {showRating(movie.rating)}
-                 
+                    { [1,2,3,4,5].map( (index) => {
+                        return (
+                          <button className="movie-item-star-icon-button" key={movie.id + "star" + index} >
+                            <StarIcon className={`${index <= movie.rating ? "h-6 w-6 text-yellow-400": "h-6 w-6 text-gray-400"}`} />
+                          </button>
+                        )
+                    })}
                 </div>
               </div>
           </div>
