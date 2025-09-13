@@ -37,7 +37,7 @@ export default function App() {
               </div>
               <div className="movie-item-genres-wrapper">
                 {movie.genres.map((tag)=> {
-                  return (<div className="movie-item-genre-tag">
+                  return (<div className="movie-item-genre-tag" key={movie.id + tag}>
                     {tag}
                   </div>)
                 })}
